@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "qnTh7nDXfsP+fmplqCXI9YiHMNIFy1Fi0jS8dwbI9Oth7j7tDWp3LBkWw248XKx2LtIANIrwXdirAWhq70M9JQ==",
+  "success": true,
+  "projectFilePath": "/Users/nameLess/allbatchfiles/Public-Portfolio/Bank-App/src/client/RegistrationService/RegistrationService.csproj",
+  "expectedPackageFiles": [
+    "/Users/nameLess/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/nameLess/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/nameLess/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/nameLess/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/nameLess/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/nameLess/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
