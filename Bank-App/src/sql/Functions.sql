@@ -6,7 +6,7 @@ CREATE OR REPLACE FUNCTION   bankapp.create_account_func()
     RETURNS trigger
     LANGUAGE 'plpgsql'
     COST 100
-    VOLITILE NOT LEAKPROOF
+    VOLATILE NOT LEAKPROOF
 AS $BODY$
 declare
 begin
@@ -26,7 +26,7 @@ CREATE OR REPLACE FUNCTION bankapp.received_transfer_func()
     RETURNS trigger
     LANGUAGE 'plpgsql'
     COST 100
-    VOLITILE NOT LEAKPROOF
+    VOLATILE NOT LEAKPROOF
 AS $BODY$
 declare
 begin
@@ -48,7 +48,7 @@ CREATE OR REPLACE FUNCTION bankapp.released_transfer_func()
     RETURNS trigger
     LANGUAGE 'plpgsql'
     COST 100
-    VOLITILE NOT LEAKPROOF
+    VOLATILE NOT LEAKPROOF
 AS $BODY$
 declare
 begin

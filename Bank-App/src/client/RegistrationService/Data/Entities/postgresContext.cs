@@ -7,8 +7,11 @@ namespace RegistrationService.Data.Entities
 {
     public partial class postgresContext : DbContext
     {
-        public postgresContext()
+        private string ConnectionString { get;set;}
+
+        public postgresContext(string conString)
         {
+            ConnectionString = conString;
         }
 
         public postgresContext(DbContextOptions<postgresContext> options)
@@ -20,6 +23,14 @@ namespace RegistrationService.Data.Entities
         public virtual DbSet<Transfer> Transfers { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<UserCred> UserCreds { get; set; } = null!;
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql(ConnectionString);
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

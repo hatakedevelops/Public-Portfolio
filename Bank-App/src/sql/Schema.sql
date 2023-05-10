@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS bankapp.accounts
         REFERENCES bankapp."user" (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)''
+)
 
 TABLESPACE pg_default;
 
