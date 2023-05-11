@@ -31,7 +31,6 @@ namespace RegistrationService.Data.Entities
                 optionsBuilder.UseNpgsql(ConnectionString);
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasPostgresExtension("pg_catalog", "adminpack");

@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION   bankapp.create_account_func()
 AS $BODY$
 declare
 begin
-    insert into bankapp.accounts(user_fk, balance , l_name) values (new.user, 1000.0, new.l_name);
+    insert into bankapp.accounts(user_fk, balance , l_name) values (new.user_id, 1000.0, new.l_name);
 return new;
 end;
 $BODY$;

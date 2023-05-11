@@ -29,6 +29,8 @@ namespace RegistrationService.Data;
                     var generateUserFk = _context.Users
                     .Where(u => u.Email.Equals(user.Email)).FirstOrDefault().UserId;
                     AddUserCred(cred, generateUserFk);
+
+                    dbTransact.Commit();
                 }
             }
         }
