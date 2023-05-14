@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDbManager,DbManager>();//Database Manager
 builder.Services.AddScoped<ILogic,Logic>();//Business Logic
 
+
     if(builder.Environment.IsDevelopment())
     {
         builder.Configuration.AddJsonFile("appsettings.Development.json", false);

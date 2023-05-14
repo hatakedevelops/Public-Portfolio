@@ -1,3 +1,4 @@
+using AccountService.DTO;
 using AccountService.Business;
 
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,29 @@ namespace AccountService.Controllers;
                 return BadRequest();
             } else {
                 return Ok(_logic.ViewAccount(userFkId));
+            }
+        }
+
+        [HttpGet("trans-recpts")]
+        public IActionResult ViewTransfers(Int32 releasedFk)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest();
+            } else {
+                return Ok(_logic.ViewTransfers(releasedFk));
+            }
+        }
+
+        [HttpPost("transfer")]
+        public IActionResult TransferAmount(TransferDTO receipt)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest();
+            } else {
+                _logic.TransferAmount(receipt);
+                return Ok("Transfer Complete");
             }
         }
     }

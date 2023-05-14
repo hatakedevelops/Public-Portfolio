@@ -33,4 +33,33 @@ namespace AccountService.Data;
             }
         }
 
+        public List<Transfer> ViewTransfers(Int32 releasedFk)
+        {
+            using(_context = new PostgresContext(ConnectionString))
+            {
+                var loadQuery = _context.Transfers
+                .FromSqlInterpolated
+                ($"SELECT * FROM bankapp.transfers WHERE account_released_fk = {releasedFk}").ToList();
+                return loadQuery;
+            }
+        }
+
+        public void TransferAmount(Transfer transfer, int accountReleased, int accountReceived)
+        {
+            using(_context = new PostgresContext(ConnectionString))
+            {
+                int generateTransferId = _context.Transfers.Where(t => t.AccountReleasedFk == accountReleased 
+                                                                  && t.AccountReceivedFk == accountReceived 
+                                                                  && t.DateCreated.Equals(transfer.DateCreated))
+                                                                  .ToList().First().TransferId;
+                    CreateTransfer(transfer);
+
+            }
+        }
+
+        private void CreateTransfer(Transfer transfer)
+        {
+            _context.Transfers.Add(transfer);
+            _context.SaveChanges();
+        }
 }
