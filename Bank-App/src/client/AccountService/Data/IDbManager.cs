@@ -4,7 +4,9 @@ namespace AccountService.Data;
 
     public interface IDbManager
     {
-            List<Account> ViewAccount(Int32 userFkId);
+            List<Account> ViewAccounts(Int32 userFkId);
+
+            Account GetAccount(int accountId);
 
             List<Transfer> ViewTransfers(Int32 releasedFk);
 

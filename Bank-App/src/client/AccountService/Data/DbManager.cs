@@ -22,7 +22,7 @@ namespace AccountService.Data;
         }
 
 
-        public List<Account> ViewAccount(Int32 userFkId)
+        public List<Account> ViewAccounts(Int32 userFkId)
         {
             using(_context = new PostgresContext(ConnectionString))
             {
@@ -30,6 +30,20 @@ namespace AccountService.Data;
                 .FromSqlInterpolated
                 ($"SELECT * FROM bankapp.accounts WHERE user_fk = {userFkId} ").ToList();
                 return loadQuery;
+            }
+        }
+
+        public Account GetAccount(int accountId)
+        {
+            using(_context = new PostgresContext(ConnectionString))
+            {
+                var account = _context.Accounts.Where(a => a.AccountId == accountId).ToList();
+                if(!account.Any())
+                {
+                    return new Account();
+                }
+
+                return account.First();
             }
         }
 
@@ -44,16 +58,22 @@ namespace AccountService.Data;
             }
         }
 
-        public void TransferAmount(Transfer transfer, int accountReleased, int accountReceived)
+        public void TransferAmount(Transfer transfer, int accountReleased, int accountReceived, bool updateTransfer = false)
         {
             using(_context = new PostgresContext(ConnectionString))
             {
-                int generateTransferId = _context.Transfers.Where(t => t.AccountReleasedFk == accountReleased 
-                                                                  && t.AccountReceivedFk == accountReceived 
-                                                                  && t.DateCreated.Equals(transfer.DateCreated))
-                                                                  .ToList().First().TransferId;
-                    CreateTransfer(transfer);
+                using(var trans = _context.Database.BeginTransaction())
+                {
 
+                    if(!updateTransfer)
+                    {
+                        CreateTransfer(transfer);
+                    } else {
+                        UpdateTransfer(transfer, accountReleased, accountReceived);
+                    }
+
+                    trans.Commit();
+                }
             }
         }
 
@@ -62,4 +82,17 @@ namespace AccountService.Data;
             _context.Transfers.Add(transfer);
             _context.SaveChanges();
         }
+
+        private void UpdateTransfer(Transfer transfer, int accountReleased, int accountReceived)
+        {
+            int generateTransferId = _context.Transfers.Where(t => t.AccountReleasedFk == accountReleased 
+                                                            && t.AccountReceivedFk == accountReceived 
+                                                            && t.DateCreated.Equals(transfer.DateCreated))
+                                                            .ToList().First().TransferId;    
+            transfer.TransferId = generateTransferId;
+
+            _context.Transfers.Update(transfer);
+            _context.SaveChanges();   
+        }
+
 }

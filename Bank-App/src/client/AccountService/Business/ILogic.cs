@@ -5,7 +5,7 @@ namespace AccountService.Business;
 
     public interface ILogic
     {
-        List<Account> ViewAccount(Int32 userFkId);
+        List<Account> ViewAccounts(Int32 userFkId);
 
         List<Transfer> ViewTransfers(Int32 releasedFk);
 

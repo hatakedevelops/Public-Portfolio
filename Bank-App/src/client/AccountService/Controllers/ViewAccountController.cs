@@ -1,5 +1,6 @@
 using AccountService.DTO;
 using AccountService.Business;
+using AccountService.Exceptions;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,14 +17,14 @@ namespace AccountService.Controllers;
             _logic = logic;
         }
 
-        [HttpGet("accounts")]
-        public IActionResult ViewAccount(Int32 userFkId)
+        [HttpGet("accounts/{userFkId}")]
+        public IActionResult ViewAccounts(Int32 userFkId)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest();
             } else {
-                return Ok(_logic.ViewAccount(userFkId));
+                return Ok(_logic.ViewAccounts(userFkId));
             }
         }
 
@@ -44,9 +45,15 @@ namespace AccountService.Controllers;
             if(!ModelState.IsValid)
             {
                 return BadRequest();
-            } else {
+            } 
+
+            try {
                 _logic.TransferAmount(receipt);
-                return Ok("Transfer Complete");
+            } catch(CheckIfAccountsExistException ex){
+                return BadRequest(ex.Message);
+            } catch(CheckAccountSameException acc) {
+                return BadRequest(acc.Message);
             }
+            return Ok("Transfer Successful");
         }
     }

@@ -1,5 +1,6 @@
-using AccountService.Business;
 using AccountService.Data;
+using AccountService.Business;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
