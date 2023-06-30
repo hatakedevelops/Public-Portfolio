@@ -32,7 +32,7 @@ declare
 begin
 update bankapp.accounts
 set balance = balance + new.amount_transferred
-where account_id = (select account_release_fk from bankapp.transfers where transfer_id = new.transfer_id);
+where account_id = (select account_received_fk from bankapp.transfers where transfer_id = new.transfer_id);
 return new;
 end;
 $BODY$;
@@ -54,7 +54,7 @@ declare
 begin
 update bankapp.accounts
 set balance = balance - new.amount_transferred
-where account_id = (select account_release_fk from bankapp.transfers where transfer_id = new.transfer_id);
+where account_id = (select account_released_fk from bankapp.transfers where transfer_id = new.transfer_id);
 return new;
 end;
 $BODY$;
