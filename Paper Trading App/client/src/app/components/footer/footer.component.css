@@ -1,0 +1,11 @@
+ 
+  footer {
+    position:relative; 
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #c4e3ff;
+    text-align: center;  
+    color: #0e52a5;
+    font-size: 15px;     
+  }

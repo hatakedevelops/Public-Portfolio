@@ -1,0 +1,228 @@
+
+<!-- Beverly -3 Breaks to create spaces before the card banner-->
+<br>
+<br>
+<br>
+<!-- Beverly - Code the "How Yoink! Works banner  -->
+<div> 
+  <mat-card class="tip">
+    <br> 
+    <br>
+    <p class="pagetitle"> <b>How Yoink! Works...<br>it's easy as 1, 2, 3, Yoink! </b></p><br>
+    
+<!--Beverly - SignUp-->
+    <div id="firstleft">
+      <br>
+       <p class="title"><b>Step 1</b></p><br>
+       <p class="subtitle"><b>Sign up</b><p></p>
+       <p class="content">Create an account to have access to a portfolio </p>
+    </div>
+<!--Beverly - Create Portfolio-->    
+    <div id="secondleft">
+       <br>
+       <p class="title"><b>Step 2</b></p><br>
+       <p class="subtitle"><b>Create portfolio</b></p>
+       <p class="content">Choose any amount to start investing </p>
+    </div>
+<!--Beverly - Pick an investment-->
+    <div id="firstright">
+       <br>
+       <p class="title"><b>Step 3</b></p><br>
+       <p class="subtitle"><b>Pick an investment</b></p>
+       <p class="content">Use Yoink! news to do research on a potential investment</p><br>
+    </div>
+<!--Beverly - Place a trade-->
+    <div id="secondright">
+       <br>
+       <p class="title"><b>Yoink!</b></p><br>
+       <p class="subtitle"><b>Place a trade</b></p>
+       <p class="content">Buy or Sell virtual stock</p>
+    </div>
+   </mat-card>
+</div>
+<br>
+<br>
+<br>
+<!-- Beverly - Yoink! Image -->
+<div class="imageposition">
+  <img [src]="logo" alt="Yoink! Logo" width="25%">
+</div>
+<br>
+
+<!-- Beverly - Adds instruction on why choose Yoink! -->
+<div>
+  <h2 class="choose">Why Choose <b>Yoink!</b></h2>
+  <ul class="whychoose">
+    <li><b>Learn</b> how to invest without risking your own money</li>
+    <li><b>Become</b> more confident about making investments</li>
+    <li><b> Yoink!</b> will help you out along the way!</li>
+  </ul>
+</div>
+<br>
+<br>
+<br>
+<!-- Beverly - adds the button in the middle of the page for user to sign up for website-->
+<a><button class="signup" mat-raised-button color=""><app-register></app-register></button></a><br/>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+</div>
+
+<!-- Beverly - Adds commentary on the currency converter tool-->
+<p class="explore"><b>Explore</b> some of our tools and info to become more financially savvy</p>
+
+<!-- Mominur - Begins the code for the Currency Converter-->
+<div class="currencyconverter">
+  <div class="col-xl-4">
+    <div class="card shadow">
+      <div class="card-header bg-transparent">
+        <div class="row align-items-center">
+          <div class="col">
+            
+            <h2 class="mb-0">Currency Converter</h2>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Mominur - Chart -->
+        <div class="main-container">
+          <div class="selection-cont">
+            <select #c1 name = "" id = "country1" (mouseleave) = "changebase(c1.value)">
+              <option value="USD">US Dollar</option>
+              <option value="INR">Indian Rupee</option>
+              <option value="EUR">Euro</option>
+              <option value="KWD">Kuwaiti Dinar</option>
+              <option value="BHD">Bahraini Dinar</option>
+            </select>
+            
+            <p> To </p>
+            
+            <select #c2 name = "" id = "country1" (mouseleave) = "tocountry(c2.value)">
+              <option value="USD">US Dollar</option>
+              <option value="INR">Indian Rupee</option>
+              <option value="EUR">Euro</option>
+              <option value="KWD">Kuwaiti Dinar</option>
+              <option value="BHD">Bahraini Dinar</option>
+            </select><br/> <br/> 
+            
+            <button mat-raised-button color="basic" (click) ="convert()">Submit</button><br/>
+          </div>
+        </div>
+      </div>
+    <div class="resultcontainer">
+    <p>1 {{base}} = {{result}} {{cont2}}</p>
+  </div>
+</div>
+</div>
+</div>
+            
+ 
+
+
+<br>  
+<br>
+<br>
+<!--Mominur - End of the currency converter-->
+
+<!--Beverly - Beginning of the Check us out Section-->            
+<p class="check"><b>Check</b> us out!</p>
+            
+<!-- Beverly/Mominur - Card to display the total number of posts-->
+  <div class="row">
+    
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Total Posts</h5>
+              <!--Beverly - Used the variable "numOfPosts" instead of the method because it would overload the API with too many calls  -->
+              <span class="h2 font-weight-bold mb-0">{{numOfPosts}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-muted text-sm">
+            <span class="text-nowrap">This Year</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Beverly / Mominur -Card to display the total number of users-->
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Total Users</h5>
+              <!-- Beverly - Used the variable "numOfUsers" instead of the method because it would overload the API with too many calls  -->
+              <span class="h2 font-weight-bold mb-0">{{numOfUsers}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-muted text-sm">
+            <span class="text-nowrap">This Year</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Beverly / Mominur - Card to display the total number of sells-->
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Total Sell Orders</h5>
+              <!-- Beverly - Used the variable "numOfSells" instead of the method because it would overload the API with too many calls  -->
+              <span class="h2 font-weight-bold mb-0">{{numOfSells}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                <i class="fas fa-users"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-muted text-sm">
+            <span class="text-nowrap">This Year</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Beverly/Mominur - Card to display the total number of buys-->
+    <div class="col-xl-3 col-lg-6 margin" >
+      <div class="card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Total Buy Orders</h5>
+              <!-- Beverly - Used the variable "numOfBuys" instead of the method because it would overload the API with too many calls  -->
+              <span class="h2 font-weight-bold mb-0">{{numOfBuys}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                <i class="fas fa-percent"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-muted text-sm">
+            <span class="text-nowrap">This Year</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

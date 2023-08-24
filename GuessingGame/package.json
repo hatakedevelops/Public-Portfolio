@@ -1,0 +1,24 @@
+{
+  "name": "practicerepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaeljaworskirevature1/practicerepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikaeljaworskirevature1/practicerepo/issues"
+  },
+  "homepage": "https://github.com/mikaeljaworskirevature1/practicerepo#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}

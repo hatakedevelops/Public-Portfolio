@@ -1,0 +1,61 @@
+<div class="create-button-container">
+  <button mat-button color="primary" id="create-portfolio-button" (click)="displayCreatePortfolioModal()"><mat-icon>add</mat-icon> Create Portfolio</button>
+</div>
+
+<div *ngIf="loading" class="progress-spinner-container">
+  <mat-progress-spinner class="progress-spinner" mode="indeterminate"></mat-progress-spinner>
+</div>
+
+<div class="centered">
+  <button mat-button color="primary" *ngIf="!loading && !showPortfolios" (click)="displayPortfolios()">
+    <mat-icon>arrow_back</mat-icon>
+    Return to portfolios
+  </button>
+</div>
+
+<div class="list-container">
+  <mat-action-list *ngIf="!loading && showPortfolios">
+    <div mat-subheader id="subheading">My Portfolios</div>
+    <mat-divider></mat-divider>
+    <mat-list-item *ngFor="let portfolio of portfolios" (click)="displayInvestments(portfolio.portfolioID)">
+      <mat-icon mat-list-icon class="portfolio-col">folder</mat-icon>
+      <div class="portfolio-col">
+        <div mat-line class="portfolio-row">{{portfolio.name}}</div>
+        <div mat-line class="portfolio-row">{{portfolio.dateModified | date}}</div>
+      </div>
+      <div class="portfolio-col">
+        <div mat-line class="portfolio-row">Total PNL</div>
+        <div mat-line class="portfolio-row">{{portfolio.totalPNL | currency}}</div>
+      </div>
+      <div class="portfolio-col">
+        <div mat-line class="portfolio-row">Original Investment</div>
+        <div mat-line class="portfolio-row">{{portfolio.originalLiquid | currency}}</div>
+      </div>
+      <div class="portfolio-col">
+        <div mat-line class="portfolio-row">Available cash</div>
+        <div mat-line class="portfolio-row">{{portfolio.liquid | currency}}</div>
+      </div>
+      <div class="portfolio-col">
+        <div mat-line class="portfolio-row">Current investments</div>
+        <div mat-line class="portfolio-row">{{portfolio.currentInvestment | currency}}</div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-action-list>
+  <mat-action-list *ngIf="!loading && showPortfolios" class="delete-list">
+    <div mat-subheader id="subheading"></div>
+    <mat-divider></mat-divider>
+    <mat-list-item *ngFor="let portfolio of portfolios" (click)="deletePortfolio(portfolio.portfolioID)">
+      <div class="portfolio-col">
+        <div mat-line class="portfolio-row"><mat-icon class="danger">delete</mat-icon></div>
+        <div mat-line class="portfolio-row"></div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-action-list>
+  <div class="investment-container" *ngIf="!loading && !showPortfolios">
+    <app-investments [portfolioID]="portfolioID"></app-investments>
+  </div>
+</div>
+<div>{{this.errorMessage}}</div>
+

@@ -1,0 +1,158 @@
+/* Buy and Sell title*/
+.title {
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* <Div> that has everything inside of it */
+.component-container {
+  display: flex;
+  /* position: absolute; */
+  justify-content: space-evenly;
+}
+
+/* Search box */
+.search-form-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* The portfolio and buy/sell dropdown boxes */
+.dropdown-fields {
+  text-align: left;
+  font-size: large;
+  margin-left: 15px;
+  text-decoration: underline;
+}
+
+/* The enter ticker and quantity boxes */
+.input-fields {
+  text-align: left;
+  font-size: large;
+  margin-left: 15px;
+  text-decoration: underline;
+}
+
+/* The total amount of the order */
+.total {
+  text-align: center;
+  font-size: xx-large;
+  color: red;
+  padding-bottom: 1px;
+  position: absolute;
+  text-decoration: underline;
+  margin-left: 20px;
+  position: absolute;
+  bottom: 140px;
+  margin-top: 5px;
+}
+
+/* The red cancel button */
+.back-btn {
+  background-color: red;
+  font-size: 15px;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border: black;
+  border-radius: 25px;
+  margin-right: 50px;
+  position: absolute;
+  bottom: 140px;
+  left: 750px;
+  top: 500px;
+}
+
+/* The green payment button */
+.buy-btn {
+  background-color: rgb(8, 199, 8);
+  font-size: 15px;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border: black;
+  border-radius: 25px;
+  position: absolute;
+  top: 500px;
+  bottom: 140px;
+  left: 1000px;
+}
+
+/* The Calculation button and background */
+.calc-Btn {
+  background-color: rgb(195, 188, 188);
+  font-size: 20px;
+  width: 205px;
+  height: 70px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border: white;
+  border-radius: 25px;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  bottom: 140px;
+}
+/* For testing search By.css below */
+.ticker-order-box {
+  color: black;
+}
+
+.dataT {
+  color: black;
+}
+
+.dataO {
+  color: black;
+}
+.dataC {
+  color: black;
+}
+
+.dataL {
+  color: black;
+}
+
+.dataH {
+  color: black;
+}
+
+.dataV {
+  color: black;
+}
+
+.quantity-input {
+  color: black;
+}
+
+.buy-sell-dropdown {
+  color: black;
+}
+
+.portfolio-dropdown {
+  color: black;
+}
+/* For testing search By.css above */
+
+/* For the ticker data chart */
+.table-info {
+  width: 100px;
+  text-align: center;
+}
+
+/* If there are errors or missing requireds */
+.error-message {
+  color: red;
+}
+
+/* Make sure quantity not 0 */
+.sm-txt-container {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+/* Make sure quantity not 0 */
+#sm-txt {
+  text-decoration: none;
+}

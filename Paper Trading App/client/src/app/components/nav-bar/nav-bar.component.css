@@ -1,0 +1,15 @@
+/* centers the nav bar links */
+.center{
+  background-color: #c4e3ff;
+  position: top;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #0e52a5;
+  
+}
+/* moves the image to the left of the nav bar */
+image{
+ justify-content:left ;
+}
+
