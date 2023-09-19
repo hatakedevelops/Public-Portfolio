@@ -18,10 +18,10 @@ public class Logic : ILogic
 
     public Configuration.Configuration _config;
 
-    public Logic(IDbManager data, IOptions<Configuration.Configuration> opitons)
+    public Logic(IDbManager data, IOptions<Configuration.Configuration> options)
     {
         _data = data;
-        _config = opitons.Value;
+        _config = options.Value;
     }
 
     public User GetUser(LoginDTO dto)
