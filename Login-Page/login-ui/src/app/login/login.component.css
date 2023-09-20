@@ -1,0 +1,43 @@
+div {
+    background-color: seagreen;
+    border-radius: 8px;
+    padding: 30px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2 {
+    color: white;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    color: white;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #333; /* Slightly darker on hover */
+  }
+  
